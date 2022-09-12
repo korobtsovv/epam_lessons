@@ -10,7 +10,7 @@ import sys
 from math import sqrt
 
 
-def ask_value(message):
+def ask_value(message: str) -> int:
     print(message)
     while True:
         try:
@@ -39,13 +39,14 @@ def ask_value(message):
                 break
         except ValueError:
             print('Only integer number is allowed, please try again')
-    print(f'\na={a}, b={b}, c={c}')
+    print('\n-------------------------------------------')
+    print(f'a = {a}, b = {b}, c = {c}')
     return (a,b,c)
 
 
-def discriminant(a,b,c):
+def discriminant(a: int, b: int, c: int) -> int:
     d = b**2-4*a*c
-    print(f'd={d}')
+    print(f'\nD = {d}\n')
     if d < 0:
         print('This quadratic equation does not have a roots')
         sys.exit()
@@ -53,28 +54,29 @@ def discriminant(a,b,c):
         return d
 
 
-def roots(d,a,b,c):
+def roots(d: int, a: int, b: int, c: int) -> None:
     if d > 0:
         x1 = (-b + sqrt(d))/2*a
         x2 = (-b - sqrt(d))/2*a
-        print(f'x1={x1}')
-        print(f'x2={x2}')
+        print(f'x1 = {x1}')
+        print(f'x2 = {x2}')
     else:
         x1 = (-b + sqrt(d))/2*a
         print(f'x={x1}')
 
 
-def solv_square(a,b,c):
+def solv_square(a: int, b: int, c: int) -> None:
     d = discriminant(a,b,c)
     roots(d,a,b,c)
 
 
-def main():
+def main() -> None:
     try:
         (a,b,c) = ask_value(msg)
         solv_square(a,b,c)
+        print('')
     except KeyboardInterrupt:
-        print('\nProgramm was interrupted!')
+        print('\nProgramm was interrupted!\n')
 
 
 
