@@ -9,6 +9,8 @@ This script find the roots of quadratic equation
 import sys
 from math import sqrt
 
+def line() -> None:
+    print('\n-------------------------------------------\n')
 
 def ask_value(message: str) -> int:
     print(message)
@@ -24,22 +26,16 @@ def ask_value(message: str) -> int:
     while True:
         try:
             b = int(input('b = '))
-            if b == 0:
-                print("'b' can't be zero, please try again")
-            else:
-                break
+            break
         except ValueError:
             print('Only integer number is allowed, please try again')
     while True:
         try:
             c = int(input('c = '))
-            if c == 0:
-                print("'c' can't be zero, please try again")
-            else:
-                break
+            break
         except ValueError:
             print('Only integer number is allowed, please try again')
-    print('\n-------------------------------------------')
+    line()
     print(f'a = {a}, b = {b}, c = {c}')
     return (a,b,c)
 
@@ -49,6 +45,7 @@ def discriminant(a: int, b: int, c: int) -> int:
     print(f'\nD = {d}\n')
     if d < 0:
         print('This quadratic equation does not have a roots')
+        line()
         sys.exit()
     else:
         return d
@@ -74,9 +71,10 @@ def main() -> None:
     try:
         (a,b,c) = ask_value(msg)
         solv_square(a,b,c)
-        print('')
+        line()
     except KeyboardInterrupt:
         print('\nProgramm was interrupted!\n')
+        line()
 
 
 
