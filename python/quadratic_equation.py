@@ -73,8 +73,7 @@ def main() -> None:
         solv_square(a,b,c)
         line()
     except KeyboardInterrupt:
-        print('\nProgramm was interrupted!\n')
-        line()
+        print('\nProgramm was interrupted!')
 
 
 
